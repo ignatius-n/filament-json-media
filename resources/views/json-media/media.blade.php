@@ -1,6 +1,6 @@
 <div class="flex">
     <figure class="w-full" >
-        <img class="object-cover w-full" loading="lazy"
+        <img class="object-cover w-full {{ $media->imgClass }}" loading="lazy"
              src="{{ $media->getCropUrl(width: $media->width,height: $media->height) }}"
              alt="{{ $media->getCustomProperty('alt') }}"
              width="{{ $media->width }}"

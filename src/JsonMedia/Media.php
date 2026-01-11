@@ -24,6 +24,7 @@ final class Media implements CanDeleteMedia, Htmlable, Stringable
         protected array $content,
         public int $width = 250,
         public int $height = 180,
+        public ?string $imgClass = null,
     ) {
         $this->getDisk();
     }
@@ -85,10 +86,11 @@ final class Media implements CanDeleteMedia, Htmlable, Stringable
         return $this->getContentKeyValue('customProperties.' . $property);
     }
 
-    public function withImageProperties(int $width, int $height): Media
+    public function withImageProperties(int $width, int $height, ?string $imgClass = null): Media
     {
         $this->width = $width;
         $this->height = $height;
+        $this->imgClass = $imgClass;
 
         return $this;
     }
