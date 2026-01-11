@@ -35,7 +35,7 @@ trait InteractWithMedia
             return $medias;
         }
         foreach ($this->{$fieldName} as $image) {
-            if (Media::isImage(data_get($image, 'mime_type'))) {
+            if (Media::isImage(data_get($image, 'mime_type', 'image/webp'))) {
                 $medias[] = Media::make($image);
             }
         }
@@ -64,7 +64,7 @@ trait InteractWithMedia
             return [];
         }
         foreach ($this->{$fieldName} as $document) {
-            if (! Media::isImage(data_get($document, 'mime_type'))) {
+            if (! Media::isImage(data_get($document, 'mime_type', 'image/webp'))) {
                 $documents[] = Document::make($document);
             }
         }
